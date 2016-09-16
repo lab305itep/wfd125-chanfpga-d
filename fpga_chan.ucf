@@ -1,0 +1,212 @@
+# Pinouts for wfd125 16-chan fpga
+
+# ADC data connections
+# ADC A
+NET "ADA<0>"  LOC = N3 | DIFF_TERM = "TRUE" ;
+NET "ADA<1>"  LOC = N1 | DIFF_TERM = "TRUE" ;
+NET "ADA<2>"  LOC = P2 | DIFF_TERM = "TRUE" ;
+NET "ADA<3>"  LOC = P1 | DIFF_TERM = "TRUE" ;
+NET "ADA<4>"  LOC = R3 | DIFF_TERM = "TRUE" ;
+NET "ADA<5>"  LOC = R1 | DIFF_TERM = "TRUE" ;
+NET "ADA<6>"  LOC = T2 | DIFF_TERM = "TRUE" ;
+NET "ADA<7>"  LOC = T1 | DIFF_TERM = "TRUE" ;
+NET "ADA<8>"  LOC = U3 | DIFF_TERM = "TRUE" ;
+NET "ADA<9>"  LOC = U1 | DIFF_TERM = "TRUE" ;
+NET "ADA<10>" LOC = V2 | DIFF_TERM = "TRUE" ;
+NET "ADA<11>" LOC = V1 | DIFF_TERM = "TRUE" ;
+NET "ADA<12>" LOC = W3 | DIFF_TERM = "TRUE" ;
+NET "ADA<13>" LOC = W1 | DIFF_TERM = "TRUE" ;
+NET "ADA<14>" LOC = Y2 | DIFF_TERM = "TRUE" ;
+NET "ADA<15>" LOC = Y1 | DIFF_TERM = "TRUE" ;
+NET "ACA<0>"  LOC = P3 | DIFF_TERM = "TRUE" ;
+NET "ACA<1>"  LOC = N4 | DIFF_TERM = "TRUE" ;
+NET "AFA<0>"  LOC = L3 | DIFF_TERM = "TRUE" ;
+NET "AFA<1>"  LOC = L1 | DIFF_TERM = "TRUE" ;
+
+NET "URCV[0].ADCRCV/trig_pins<0>" LOC = M7;
+NET "URCV[0].ADCRCV/trig_pins<1>" LOC = M8;
+
+# ADC B
+NET "ADB<0>"  LOC = AA4  | DIFF_TERM = "TRUE" ;
+NET "ADB<1>"  LOC = AB4  | DIFF_TERM = "TRUE" ;
+NET "ADB<2>"  LOC = Y5   | DIFF_TERM = "TRUE" ;
+NET "ADB<3>"  LOC = AB5  | DIFF_TERM = "TRUE" ;
+NET "ADB<4>"  LOC = AA6  | DIFF_TERM = "TRUE" ;
+NET "ADB<5>"  LOC = AB6  | DIFF_TERM = "TRUE" ;
+NET "ADB<6>"  LOC = W6   | DIFF_TERM = "TRUE" ;
+NET "ADB<7>"  LOC = Y6   | DIFF_TERM = "TRUE" ;
+NET "ADB<8>"  LOC = Y7   | DIFF_TERM = "TRUE" ;
+NET "ADB<9>"  LOC = AB7  | DIFF_TERM = "TRUE" ;
+NET "ADB<10>" LOC = AA8  | DIFF_TERM = "TRUE" ;
+NET "ADB<11>" LOC = AB8  | DIFF_TERM = "TRUE" ;
+NET "ADB<12>" LOC = Y9   | DIFF_TERM = "TRUE" ;
+NET "ADB<13>" LOC = AB9  | DIFF_TERM = "TRUE" ;
+NET "ADB<14>" LOC = AA10 | DIFF_TERM = "TRUE" ;
+NET "ADB<15>" LOC = AB10 | DIFF_TERM = "TRUE" ;
+NET "ACB<0>"  LOC = AA12 | DIFF_TERM = "TRUE" ;
+NET "ACB<1>"  LOC = AB12 | DIFF_TERM = "TRUE" ;
+NET "AFB<0>"  LOC = Y11  | DIFF_TERM = "TRUE" ;
+NET "AFB<1>"  LOC = AB11 | DIFF_TERM = "TRUE" ;
+
+NET "URCV[1].ADCRCV/trig_pins<0>" LOC = R9;
+NET "URCV[1].ADCRCV/trig_pins<1>" LOC = R8;
+
+# ADC C
+NET "ADC<0>"  LOC = AA14 | DIFF_TERM = "TRUE" ;
+NET "ADC<1>"  LOC = AB14 | DIFF_TERM = "TRUE" ;
+NET "ADC<2>"  LOC = Y15  | DIFF_TERM = "TRUE" ;
+NET "ADC<3>"  LOC = AB15 | DIFF_TERM = "TRUE" ;
+NET "ADC<4>"  LOC = Y16  | DIFF_TERM = "TRUE" ;
+NET "ADC<5>"  LOC = W15  | DIFF_TERM = "TRUE" ;
+NET "ADC<6>"  LOC = AA16 | DIFF_TERM = "TRUE" ;
+NET "ADC<7>"  LOC = AB16 | DIFF_TERM = "TRUE" ;
+NET "ADC<8>"  LOC = Y17  | DIFF_TERM = "TRUE" ;
+NET "ADC<9>"  LOC = AB17 | DIFF_TERM = "TRUE" ;
+NET "ADC<10>" LOC = W17  | DIFF_TERM = "TRUE" ;
+NET "ADC<11>" LOC = Y18  | DIFF_TERM = "TRUE" ;
+NET "ADC<12>" LOC = AA18 | DIFF_TERM = "TRUE" ;
+NET "ADC<13>" LOC = AB18 | DIFF_TERM = "TRUE" ;
+NET "ADC<14>" LOC = V17  | DIFF_TERM = "TRUE" ;
+NET "ADC<15>" LOC = W18  | DIFF_TERM = "TRUE" ;
+NET "ACC<0>"  LOC = T12  | DIFF_TERM = "TRUE" ;
+NET "ACC<1>"  LOC = U12  | DIFF_TERM = "TRUE" ;
+NET "AFC<0>"  LOC = Y13  | DIFF_TERM = "TRUE" ;
+NET "AFC<1>"  LOC = AB13 | DIFF_TERM = "TRUE" ;
+
+NET "URCV[2].ADCRCV/trig_pins<0>" LOC = R13;
+NET "URCV[2].ADCRCV/trig_pins<1>" LOC = T14;
+
+# ADC D
+NET "ADD<0>"  LOC = Y21 | DIFF_TERM = "TRUE" ;
+NET "ADD<1>"  LOC = Y22 | DIFF_TERM = "TRUE" ;
+NET "ADD<2>"  LOC = W20 | DIFF_TERM = "TRUE" ;
+NET "ADD<3>"  LOC = W22 | DIFF_TERM = "TRUE" ;
+NET "ADD<4>"  LOC = V21 | DIFF_TERM = "TRUE" ;
+NET "ADD<5>"  LOC = V22 | DIFF_TERM = "TRUE" ;
+NET "ADD<6>"  LOC = U20 | DIFF_TERM = "TRUE" ;
+NET "ADD<7>"  LOC = U22 | DIFF_TERM = "TRUE" ;
+NET "ADD<8>"  LOC = T21 | DIFF_TERM = "TRUE" ;
+NET "ADD<9>"  LOC = T22 | DIFF_TERM = "TRUE" ;
+NET "ADD<10>" LOC = R20 | DIFF_TERM = "TRUE" ;
+NET "ADD<11>" LOC = R22 | DIFF_TERM = "TRUE" ;
+NET "ADD<12>" LOC = P21 | DIFF_TERM = "TRUE" ;
+NET "ADD<13>" LOC = P22 | DIFF_TERM = "TRUE" ;
+NET "ADD<14>" LOC = N20 | DIFF_TERM = "TRUE" ;
+NET "ADD<15>" LOC = N22 | DIFF_TERM = "TRUE" ;
+NET "ACD<0>"  LOC = L20 | DIFF_TERM = "TRUE" ;
+NET "ACD<1>"  LOC = L22 | DIFF_TERM = "TRUE" ;
+NET "AFD<0>"  LOC = P20 | DIFF_TERM = "TRUE" ;
+NET "AFD<1>"  LOC = N19 | DIFF_TERM = "TRUE" ;
+ 
+NET "URCV[3].ADCRCV/trig_pins<0>" LOC = R15;
+NET "URCV[3].ADCRCV/trig_pins<1>" LOC = R16;
+ 
+# Parallel lines to other FPGAs
+# 0-1 "good pair"
+NET "ICX<0>" LOC = K21;
+NET "ICX<1>" LOC = K22;
+NET "ICX<2>" LOC = C22;
+NET "ICX<3>" LOC = D21;
+NET "ICX<4>" LOC = B22;
+NET "ICX<5>" LOC = C20;
+NET "ICX<6>" LOC = D22;
+NET "ICX<7>" LOC = B1;
+NET "ICX<8>" LOC = B21;
+NET "ICX<9>" LOC = C1;
+# 10-11 "satisfactory pair"
+NET "ICX<10>" LOC = D2;
+NET "ICX<11>" LOC = D1;
+# 12-13 "satisfactory pair"
+NET "ICX<12>" LOC = E3;
+NET "ICX<13>" LOC = E1;
+# 14-15 "good pair"
+NET "ICX<14>" LOC = M3;
+NET "ICX<15>" LOC = L4;
+ 
+# Analog control
+NET "ACNTR<0>" LOC = K2;
+NET "ACNTR<1>" LOC = K1;
+NET "ACNTR<2>" LOC = J20;
+NET "ACNTR<3>" LOC = J22;
+
+# Stone number
+NET "CHN<0>" LOC = K5;
+NET "CHN<1>" LOC = H5;
+
+# Fast serial connections and CLK
+# Main Clock
+NET "RCLK<0>" LOC = A10;
+NET "RCLK<1>" LOC = B10;
+# Recievers
+NET "RX0<0>" LOC = D7;
+NET "RX0<1>" LOC = C7;
+NET "RX1<0>" LOC = D9;
+NET "RX1<1>" LOC = C9;
+NET "RX2<0>" LOC = D13;
+NET "RX2<1>" LOC = C13;
+NET "RX3<0>" LOC = D15;
+NET "RX3<1>" LOC = C15;
+# Transmitters
+NET "TX0<0>" LOC = B6;
+NET "TX0<1>" LOC = A6;
+NET "TX1<0>" LOC = B8;
+NET "TX1<1>" LOC = A8;
+NET "TX2<0>" LOC = B14;
+NET "TX2<1>" LOC = A14;
+NET "TX3<0>" LOC = B16;
+NET "TX3<1>" LOC = A16;
+
+# Serial interfaces
+# Clock Buffer I2C
+NET "I2CCLK" LOC = A20 ;
+NET "I2CDAT" LOC = B20 ;
+# ADC SPI
+NET "SPICLK"    LOC = A2 ;
+NET "SPIDAT"    LOC = B2 ;
+NET "SPISEL<0>" LOC = C3 ;
+NET "SPISEL<1>" LOC = D3 ;
+NET "SPISEL<2>" LOC = D19 ;
+NET "SPISEL<3>" LOC = C19 ;
+
+# Config interface
+NET "INIT" LOC = Y4;
+NET "DOUT" LOC = V20;
+NET "CCLK" LOC = Y20;
+NET "DIN"  LOC = AA20;
+
+# Test points
+NET "TP<1>" LOC = G22;
+NET "TP<2>" LOC = F21;
+NET "TP<3>" LOC = F22;
+NET "TP<4>" LOC = E20;
+NET "TP<5>" LOC = E22;
+
+#Created by Constraints Editor (xc6slx45t-fgg484-2) - 2014/09/24
+#NET "CLK125" TNM_NET = CLK125;
+#TIMESPEC TS_CLK125 = PERIOD "CLK125" 8 ns HIGH 50%;
+NET "UGTP/gtpclk_o<0>" TNM_NET = gtpclk;
+TIMESPEC TS_gtpclk = PERIOD "gtpclk" 8 ns HIGH 50%;
+NET "RCLK<0>" TNM_NET = RCLK<0>;
+TIMESPEC TS_RCLK_0_ = PERIOD "RCLK<0>" 8 ns HIGH 50%;
+NET "RCLK<1>" TNM_NET = RCLK<1>;
+TIMESPEC TS_RCLK_1_ = PERIOD "RCLK<1>" 8 ns HIGH 50%;
+NET "ACA<0>" TNM_NET = ACA<0>;
+TIMESPEC TS_ACA_0_ = PERIOD "ACA<0>" 2.6 ns HIGH 50%;
+NET "ACA<1>" TNM_NET = ACA<1>;
+TIMESPEC TS_ACA_1_ = PERIOD "ACA<1>" 2.6 ns HIGH 50%;
+NET "ACB<0>" TNM_NET = ACB<0>;
+TIMESPEC TS_ACB_0_ = PERIOD "ACB<0>" 2.6 ns HIGH 50%;
+NET "ACB<1>" TNM_NET = ACB<1>;
+TIMESPEC TS_ACB_1_ = PERIOD "ACB<1>" 2.6 ns HIGH 50%;
+NET "ACC<0>" TNM_NET = ACC<0>;
+TIMESPEC TS_ACC_0_ = PERIOD "ACC<0>" 2.6 ns HIGH 50%;
+NET "ACC<1>" TNM_NET = ACC<1>;
+TIMESPEC TS_ACC_1_ = PERIOD "ACC<1>" 2.6 ns HIGH 50%;
+NET "ACD<0>" TNM_NET = ACD<0>;
+TIMESPEC TS_ACD_0_ = PERIOD "ACD<0>" 2.6 ns HIGH 50%;
+NET "ACD<1>" TNM_NET = ACD<1>;
+TIMESPEC TS_ACD_1_ = PERIOD "ACD<1>" 2.6 ns HIGH 50%;
+
+NET "reg_array/register_0<*>" TIG;
+NET "UCOEF/register_0<*>" TIG;
+NET "URCV[*].ADCRCV/trigout" TIG;
