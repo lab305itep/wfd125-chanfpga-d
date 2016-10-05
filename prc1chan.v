@@ -77,7 +77,7 @@ module prc1chan # (
 		output 				have,			// acknowledge to arbitter, immediate with give
 		output [15:0] 		dout,			// tristate data to arbitter
 		output reg			missed,		// 1 clk pulse when fifo cannot accept data because of full
-output [1:0] debug,
+		output [1:0] debug,
 		// to double channel trigger (ADCCLK clocked)
 		output [15:0]		dpdata,		// data to DCT
 		input 				ddiscr,		// discriminator output from DCT

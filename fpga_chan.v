@@ -346,7 +346,7 @@ module fpga_chan(
 	assign wb_s2m_reg_array_dat[31:16] = 16'h0000;
 
 //		register array 1
-	parreg16 #(.ADRBITS(4)) reg_array1 (
+/*	parreg16 #(.ADRBITS(4)) reg_array1 (
 		.wb_clk    (wb_clk), 
 		.wb_adr    (wb_m2s_reg_array1_adr[5:2]), 
 		.wb_dat_i  (wb_m2s_reg_array1_dat[15:0]), 
@@ -360,7 +360,7 @@ module fpga_chan(
 	assign wb_s2m_reg_array1_err = 0;
 	assign wb_s2m_reg_array1_rty = 0;
 	assign wb_s2m_reg_array1_dat[31:16] = 16'h0000;
-
+*/
 //		coefficients array
 	parreg16 #(.ADRBITS(4)) UCOEF (
 		.wb_clk    (wb_clk), 
@@ -491,10 +491,12 @@ wire [32:0] dbg;
 		doubletrig UDTC (
 			.ADCCLK		(ADCCLK[i/2]),							// ADC clock, common for each 2 pairs of channels
 			.dpdata		(dpdata[32*i+31:32*i]),				// data from 2 prc1chan's, ADC clocked, ped subtracted
-			.ithr			(par_array[PAR_DTITHR*16+11:PAR_DTITHR*16]),	// individual channel threshold
-			.sthr			(par_array[PAR_DTSTHR*16+11:PAR_DTSTHR*16]),	// two channel sum threshold
+//			.ithr			(par_array[PAR_DTITHR*16+11:PAR_DTITHR*16]),	// individual channel threshold
+//			.sthr			(par_array[PAR_DTSTHR*16+11:PAR_DTSTHR*16]),	// two channel sum threshold
+			.ithr			(par_array[PAR_STTHR*16+11:PAR_STTHR*16]),	// individual channel threshold
+			.sthr			(par_array[PAR_MTTHR*16+11:PAR_MTTHR*16]),	// two channel sum threshold
 			.raw			(CSR[15]),								// raw mode inhibits
-			.dtmask		(par_array[PAR_DTMASK*16+i]),		// mask bit inhibits
+			.dtmask		(par_array[PAR_SUMASK*16+i]),		// mask bit inhibits
 			.ddiscr		(ddiscr[i])								// discriminator output		
 		);
 		end
