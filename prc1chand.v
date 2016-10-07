@@ -53,14 +53,13 @@ module prc1chand # (
 	input [CBITS-1:0]	mwinbeg,	// window begin relative to the pair trigger (10 bits)
 	input [CBITS-1:0]	swinbeg,	// self trigger window begin relative to sthr crossing (10 bits)
 	input [8:0] 		winlen,		// window length (9 bits, but not greater than 509)
-	input 			tmask,		// 1 bit mask for pair trigger
 	input 			stmask,		// 1 bit mask for self trigger
 	input			invert,		// change waveform sign
 	input 			raw,		// test mode: no selftrigger, zero for summing, raw data on master trigger
 	// pedestals
 	input			pedmode,	// pedestal mode: 0 - always calc and update, 1 - use small signal condition and change by 1
 	input			pedinh,		// disable pedestal update according to pedmode
-	output reg [ABITS-1:0] ped = 0,		// pedestal (baseline) for readout through WB pedarray
+	output [ABITS-1:0]	ped,		// pedestal (baseline) for readout through WB pedarray
 	// to double channel trigger (ADCCLK clocked)
 	output [15:0]		dpdata,		// data to DCT
 	// trigger time
@@ -72,7 +71,7 @@ module prc1chand # (
 	// arbitter interface for data output
 	input 			give,		// request from arbitter
 	output 			have,		// acknowledge to arbitter, immediate with give
-	output [15:0] 		dout,		// tristate data to arbitter
+	output reg [15:0]	dout,		// tristate data to arbitter
 	output reg		missed,		// 1 clk pulse when fifo cannot accept data because of full
 	// test pulse interface
 	input			testmode,	// Select test mode
@@ -95,8 +94,8 @@ module prc1chand # (
 
 	// self trigger & prescale
 	reg			inh = 1;	// inhibit - sum all contributions
-	wire 			strig = 0;	// self trigger ADCCLK timed
-	wire [9:0]		strig_cnt = 0;	// self trigger counter after prescale
+	wire 			strig;		// self trigger ADCCLK timed
+	wire [9:0]		strig_cnt;	// self trigger counter after prescale
 
 	//		state mathine definitions
 	localparam ST_IDLE	= 0;		// waiting for triggers
@@ -127,9 +126,10 @@ module prc1chand # (
 	wire [FBITS-1:0]	fifo_free;	// number of free 16-bit words in the output FIFO
 	reg			fifo_full;	// fifo cannot accept next block, ADCCLK
 	reg			fifo_full_clk;	// fifo cannot accept next block, clk
+	reg			missed_adcclk;	// skipped trigger, adc clock
 
 	// test mode support
-	reg [1:0]			testp = 0;
+	reg [1:0]		testp = 0;
 
 //
 //		The logic
@@ -206,20 +206,33 @@ module prc1chand # (
 		if (have) begin
 			f_raddr <= f_raddr + 1;
 		end
-		if (pblkend_clk) begin
+		if (p_blkend_clk) begin
 			f_blkend_clk <= f_blkend;
 		end
-		p_blkend_clk <= p_blkend;
 		fifo_full_clk <= (fifo_free < (winlen + 4)) & (fifo_free != 0);
-		missed <= missed_adcclk;
 	end
 
+	always @ (posedge clk or posedge p_blkend) begin
+		if (p_blkend) begin
+			p_blkend_clk <= 1;
+		end else if (p_blkend_clk) begin
+			p_blkend_clk <= 0;
+		end 
+	end
+
+	always @ (posedge clk or posedge missed_adcclk) begin
+		if (missed_adcclk) begin
+			missed <= 1;
+		end else if (missed) begin
+			missed <= 0;
+		end 
+	end
 
 // state machine @ ADCCLK
 	always @ (posedge ADCCLK) begin
 		p_blkend <= 0;			// default
 		blklen <= winlen + 2;		// relatch for better timing
-		tofifo = 0;
+		tofifo <= 0;
 //		state machine
 		case (trg_state) 
 		ST_IDLE: begin
@@ -228,7 +241,7 @@ module prc1chand # (
 					trg_state <= ST_M1;
 				end else if (strig) begin
 					// we can write to fifo, write CW
-					tofifo = {1'b1, num, blklen};
+					tofifo <= {1'b1, num, blklen};
 					f_waddr <= f_waddr + 1;
 					to_copy <= winlen;
 					trg_state <= ST_S1;					
@@ -237,7 +250,7 @@ module prc1chand # (
 		end
 		ST_M0: begin
 			// we can write to fifo, write CW
-			tofifo = {1'b1, num, blklen};
+			tofifo <= {1'b1, num, blklen};
 			f_waddr <= f_waddr + 1;
 			to_copy <= winlen;
 			trg_state <= ST_M1;
@@ -251,14 +264,14 @@ module prc1chand # (
 		end
 		ST_M2: begin
 //	2	0TTT TTTT TTTT TDDD 
-			tofifo = {1'b0, gtime[14:0]};
+			tofifo <= {1'b0, gtime[14:0]};
 			f_waddr <= f_waddr + 1;
 			cb_raddr <= cb_raddr + 1;			// preincrement circular buffer read address
 			trg_state <= ST_MDATA;
 		end
 		ST_MDATA: begin
 			// stream data from circular buffer to fifo
-			tofifo = {1'b0, cb_data[14:0]};
+			tofifo <= {1'b0, cb_data[14:0]};
 			f_waddr <= f_waddr + 1;
 			cb_raddr <= cb_raddr + 1;
 			to_copy <= to_copy - 1;
@@ -298,7 +311,7 @@ module prc1chand # (
 				trg_state <= ST_M0;
 			end else begin
 				// stream data from circular buffer to fifo
-				tofifo = {1'b0, cb_data[14:0]};
+				tofifo <= {1'b0, cb_data[14:0]};
 				f_waddr <= f_waddr + 1;
 				cb_raddr <= cb_raddr + 1;
 				to_copy <= to_copy - 1;
@@ -313,7 +326,7 @@ module prc1chand # (
 		default: trg_state <= ST_IDLE;
 		endcase
 //		Missed
-		if (mtrig & (fifo_full || trg_state == ST_M0 || trg_state == ST_M1 ||
+		if (ptrig & (fifo_full || trg_state == ST_M0 || trg_state == ST_M1 ||
 			trg_state == ST_M2 || trg_state == ST_MDATA)) begin
 			missed_adcclk <= 1;
 		end else begin

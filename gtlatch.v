@@ -19,12 +19,31 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module gtlatch(
-	input 		adcclk,	// ADC clock
-	input [21:0] 	gtin,	// External frequency counter
-	input 		trig,	// Trigger
-	input [2:0] 	phase,	// external frequency phase
-	input [24:0] 	gtout	// latched result
+	input 			adcclk,	// ADC clock
+	input			extclk,	// External frequency
+	input [21:0] 		gtin,	// External frequency counter
+	input 			trig,	// Trigger
+	input [2:0] 		phase,	// external frequency phase
+	output [24:0]	 	gtout	// latched result
 );
 
+	reg [21:0]		gt = 0;
+	reg			trig_e = 0;
+	
+	always @ (posedge extclk or posedge trig) begin
+		if (trig) begin
+			trig_e <= 1;
+		end else if (trig_e) begin
+			trig_e <= 0;
+		end
+	end
+
+	always @ (posedge extclk) begin
+		if (trig_e) begin
+			gt <= gtin;
+		end
+	end
+	
+	assign gtout = {gt, phase};
 
 endmodule

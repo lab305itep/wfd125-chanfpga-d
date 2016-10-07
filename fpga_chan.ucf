@@ -23,8 +23,8 @@ NET "ACA<1>"  LOC = N4 | DIFF_TERM = "TRUE" ;
 NET "AFA<0>"  LOC = L3 | DIFF_TERM = "TRUE" ;
 NET "AFA<1>"  LOC = L1 | DIFF_TERM = "TRUE" ;
 
-NET "URCV[0].ADCRCV/trig_pins<0>" LOC = M7;
-NET "URCV[0].ADCRCV/trig_pins<1>" LOC = M8;
+NET "URCV[0].ADCRCVD/trig_pins<0>" LOC = M7;
+NET "URCV[0].ADCRCVD/trig_pins<1>" LOC = M8;
 
 # ADC B
 NET "ADB<0>"  LOC = AA4  | DIFF_TERM = "TRUE" ;
@@ -48,8 +48,8 @@ NET "ACB<1>"  LOC = AB12 | DIFF_TERM = "TRUE" ;
 NET "AFB<0>"  LOC = Y11  | DIFF_TERM = "TRUE" ;
 NET "AFB<1>"  LOC = AB11 | DIFF_TERM = "TRUE" ;
 
-NET "URCV[1].ADCRCV/trig_pins<0>" LOC = R9;
-NET "URCV[1].ADCRCV/trig_pins<1>" LOC = R8;
+NET "URCV[1].ADCRCVD/trig_pins<0>" LOC = R9;
+NET "URCV[1].ADCRCVD/trig_pins<1>" LOC = R8;
 
 # ADC C
 NET "ADC<0>"  LOC = AA14 | DIFF_TERM = "TRUE" ;
@@ -73,8 +73,8 @@ NET "ACC<1>"  LOC = U12  | DIFF_TERM = "TRUE" ;
 NET "AFC<0>"  LOC = Y13  | DIFF_TERM = "TRUE" ;
 NET "AFC<1>"  LOC = AB13 | DIFF_TERM = "TRUE" ;
 
-NET "URCV[2].ADCRCV/trig_pins<0>" LOC = R13;
-NET "URCV[2].ADCRCV/trig_pins<1>" LOC = T14;
+NET "URCV[2].ADCRCVD/trig_pins<0>" LOC = R13;
+NET "URCV[2].ADCRCVD/trig_pins<1>" LOC = T14;
 
 # ADC D
 NET "ADD<0>"  LOC = Y21 | DIFF_TERM = "TRUE" ;
@@ -98,8 +98,8 @@ NET "ACD<1>"  LOC = L22 | DIFF_TERM = "TRUE" ;
 NET "AFD<0>"  LOC = P20 | DIFF_TERM = "TRUE" ;
 NET "AFD<1>"  LOC = N19 | DIFF_TERM = "TRUE" ;
  
-NET "URCV[3].ADCRCV/trig_pins<0>" LOC = R15;
-NET "URCV[3].ADCRCV/trig_pins<1>" LOC = R16;
+NET "URCV[3].ADCRCVD/trig_pins<0>" LOC = R15;
+NET "URCV[3].ADCRCVD/trig_pins<1>" LOC = R16;
  
 # Parallel lines to other FPGAs
 # 0-1 "good pair"
@@ -207,6 +207,11 @@ TIMESPEC TS_ACD_0_ = PERIOD "ACD<0>" 2.6 ns HIGH 50%;
 NET "ACD<1>" TNM_NET = ACD<1>;
 TIMESPEC TS_ACD_1_ = PERIOD "ACD<1>" 2.6 ns HIGH 50%;
 
+NET "ICX<0>" TNM_NET = ICX<0>;
+TIMESPEC TS_ICX_0_ = PERIOD "ICX<0>" 64 ns HIGH 50%;
+NET "ICX<1>" TNM_NET = ICX<1>;
+TIMESPEC TS_ICX_1_ = PERIOD "ICX<1>" 64 ns HIGH 50%;
+
+
 NET "reg_array/register_0<*>" TIG;
-NET "UCOEF/register_0<*>" TIG;
-NET "URCV[*].ADCRCV/trigout" TIG;
+#NET "URCV[*].ADCRCVD/sertrig" TIG;

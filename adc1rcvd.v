@@ -17,11 +17,11 @@ module adc1rcvd # (
 		parameter IOSTD = "LVDS_25"
 	)
 	(
-		input 			CLK,		// General FPGA clock for SERDES and its bitslip timing
+		input 		CLK,	// General FPGA clock for SERDES and its bitslip timing
 		input  [1:0] 	CLKIN,	// clocks from ADC
-		input  [1:0] 	DIN,		// one line data from ADC
-		output [5:0] 	DOUT,		// deserialized data to FPGA
-		input IOCE,					// SERDESSTROBE
+		input  [1:0] 	DIN,	// one line data from ADC
+		output [5:0] 	DOUT,	// deserialized data to FPGA
+		input IOCE,		// SERDESSTROBE
 		input BS,					// bitslip enable
 		input SRST,					// asyncronous reset to ISERDES
 		input DINC,					// increment command to IODELAY

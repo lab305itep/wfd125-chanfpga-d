@@ -37,7 +37,8 @@ module doubletrig # (
 	reg signed [15:0]	ch1_p = 0;
 	reg signed [16:0]	s2 = 0;
 	reg			ddiscr = 0;
-	reg [1:0]		ext_d = 0;
+	reg 			ext_d = 0;
+	reg 			inh = 0;
 	 
 	always @ (posedge ADCCLK) begin
 		ch0_p <= dpdata[15:0];
@@ -46,8 +47,9 @@ module doubletrig # (
 		ch1 <= ch1_p;
 		s2 <= ch0_p + ch1_p;
 		trig <= 0;
+		inh <= inhibit;
 
-		if (~inhibit) begin
+		if (~inh) begin
 			if ((ch0 > $signed({1'b0,ithr})) & (ch1 > $signed({1'b0,ithr})) & (s2 > $signed({1'b0,sthr}))) begin
 				if (~ddiscr) begin
 					// crossing threshold (for the first time)
@@ -61,8 +63,15 @@ module doubletrig # (
 		end else begin
 			ddiscr <= 0;
 		end
-		if (ext_d == 2'b01) trig <= 1;
-		ext_d <= {ext_d[0], exttrig};
+		trig <= ext_d;
 	end
-
+	
+	always @(posedge ADCCLK or posedge exttrig) begin
+		if (exttrig) begin
+			ext_d <= 1;
+		end else if (ext_d) begin
+			ext_d <= 0;
+		end
+	end
+						
 endmodule

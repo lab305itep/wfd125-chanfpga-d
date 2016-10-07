@@ -61,13 +61,13 @@ module self_trig #(
 						presc_cnt <= prescale;
 						// produce self trigger and memorize current position in circular buffer
 						strig <= 1;
-						counter <= strig_cnt + 1;	// count self triggers after prescale independently of transmission
+						counter <= counter + 1;	// count self triggers after prescale independently of transmission
 						if (strig_del == 0) begin
 							strig_del <= STDELAY;
 						end
 					end
 				end
-			end else if (pdata <= $signed({1'b0,threshold[ABITS-1:1]})) begin
+			end else if (data <= $signed({1'b0,threshold[ABITS-1:1]})) begin
 				// HALF threshold crossed back (noise reduction)
 				discr <= 0;
 				// finish with trigger on command from state machine

@@ -19,29 +19,31 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module extfreq(
-	input	 	freqin,		// external frequency input, 125/8 MHz expected
-	output 		freqout,	// output 125 MHz
-	output [21:0] 	counter,	// 125 MHz counter
-	input 		reset,		// reset counter
-	input 		inhibit,	// inhibit counter
-	input 		dcmreset	// reset DCM
+	input	 		freqin,		// external frequency input, 125/8 MHz expected
+	output reg		freqout = 0,	// output 125 MHz
+	output [21:0] 		counter,	// 125 MHz counter
+	input 			reset,		// reset counter
+	input 			inhibit,	// inhibit counter
+	input 			dcmreset	// reset DCM
 );
 
-	reg		inh;		// inhibit latched by local frequency
-	reg		res;		// reset latched by local frequency
-	wire		dcmfb;		// DCM feedback
+	reg			inh;		// inhibit latched by local frequency
+	reg			res;		// reset latched by local frequency
+	wire			dcmfb;		// DCM feedback
+	wire			freq16;		// 16x of input frequency
+	reg [22:0]		cnt = 0;	// internal counter
 
 	   // DCM_SP: Digital Clock Manager
    //         Spartan-6
    // Xilinx HDL Language Template, version 14.7
 
 	DCM_SP #(
-		.CLKFX_MULTIPLY(8),	// Multiply value on CLKFX outputs - M - (2-32)
+		.CLKFX_MULTIPLY(16),	// Multiply value on CLKFX outputs - M - (2-32)
 		.CLKIN_PERIOD(64.0),	// Input clock period specified in nS
-		.CLK_FEEDBACK("1X"),	// Feedback source (NONE, 1X, 2X)
+		.CLK_FEEDBACK("1X")	// Feedback source (NONE, 1X, 2X)
 	) DCM_SP_inst (
 		.CLK0(dcmfb),		// 1-bit output: 0 degree clock output
-		.CLKFX(freqout),	// 1-bit output: Digital Frequency Synthesizer output (DFS)
+		.CLKFX(freq16),		// 1-bit output: Digital Frequency Synthesizer output (DFS)
 		.CLKFB(dcmfb),		// 1-bit input: Clock feedback input
 		.CLKIN(freqin),		// 1-bit input: Clock input
 		.DSSEN(0),		// 1-bit input: Unsupported, specify to GND.
@@ -51,5 +53,17 @@ module extfreq(
 		.RST(dcmreset)		// 1-bit input: Active high reset input
 	);
 
+	always @ (posedge freq16) begin
+		freqout <= ~freqout;
+		inh <= inhibit;
+		res <= reset;
+		if (res) begin
+			cnt <= 0;
+		end else if (~inh) begin
+			cnt <= counter + 1;
+		end
+	end
+	
+	assign counter = cnt[22:1];
 	
 endmodule

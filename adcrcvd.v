@@ -44,7 +44,7 @@ module adcrcvd(
 		output [47:0] 		DOUT,		// output data (CLK clocked)
 		// ADC trigger
 		input			sertrig,	// 125 MHz external frequency
-		output reg [2:0]	trtime,		// encoded texternal frequncy phase
+		output reg [2:0]	trtime,		// encoded external frequncy phase
 		//	WB interface
 		input 			wb_clk,
 		input 			wb_cyc,
@@ -52,11 +52,11 @@ module adcrcvd(
 		input 			wb_we,
 		input [3:0] 		wb_adr,
 		input [31:0] 		wb_dat_i,
-		output reg 			wb_ack,
+		output reg 		wb_ack,
 		output [31:0] 		wb_dat_o,
 		// checking signals
-		input [3:0]			chk_type,	// test pattern number to check (from main CSR)
-		input 				chk_run		// checking interval, from checkseq
+		input [3:0]		chk_type,	// test pattern number to check (from main CSR)
+		input 			chk_run		// checking interval, from checkseq
 	);
 	 
 	wire 				CLKIN_b;		// clocks from input buffer (375 MHz)
@@ -69,14 +69,14 @@ module adcrcvd(
 	reg	[47:0]	DOUT_d;		// ADC data delayed 1 CLK
 	
 	// trigger
-	reg				iodrst;		// IODELAY reset reclocked to CLK
-	reg				halfclk;		// CLK/2 to imitate sertrig transitions on IODELAY reset
-	reg				trigmux;		// select sertrig/halfclk for output
-	reg	[3:0]		hclk_cnt;	// sent 8 halfclk to trigger input on IODELAY reset
-	wire				trigout;		// trigger output to obuf with added clkhalf
+//	reg			iodrst;		// IODELAY reset reclocked to CLK
+//	reg			halfclk;	// CLK/2 to imitate sertrig transitions on IODELAY reset
+//	reg			trigmux;	// select sertrig/halfclk for output
+//	reg	[3:0]		hclk_cnt;	// sent 8 halfclk to trigger input on IODELAY reset
+//	wire			trigout;	// trigger output to obuf with added clkhalf
 	wire	[1:0]		trig_pins;	// obuf to ibuf trigger connection
-	wire 	[5:0]		TR_r;			// trigger deser data
-	reg	[5:0]		TR_d;			// trigger data delayed 1 CLK
+	wire 	[5:0]		TR_r;		// trigger deser data
+	reg	[5:0]		TR_d;		// trigger data delayed 1 CLK
 	
 	// registers
 	reg 	[15:0]	csr;					// commands and status reg
@@ -186,20 +186,20 @@ module adcrcvd(
 	
 	// Trigger
 	// mux with wb_clk/2 on IODELAY reset
-	cmux21 trig_mux (
-		.I0	(sertrig),
-		.I1	(halfclk),
-		.S	(trigmux),
-		.O	(trigout)
-	);
+//	cmux21 trig_mux (
+//		.I0	(sertrig),
+//		.I1	(halfclk),
+//		.S	(trigmux),
+//		.O	(trigout)
+//	);
 	
 	// translate to ibuf
    OBUFDS #(
       .IOSTANDARD("BLVDS_25") 		// Specify the output I/O standard
    ) OBUFDS_trig (
-      .O		(trig_pins[0]),     		// Diff_p output (connect directly to top-level port)
+      .O	(trig_pins[0]),     		// Diff_p output (connect directly to top-level port)
       .OB	(trig_pins[1]),   		// Diff_n output (connect directly to top-level port)
-      .I		(trigout)      			// Buffer input 
+      .I	(sertrig)      			// Buffer input 
    );
 
 	//	recieve trigger
@@ -218,21 +218,21 @@ module adcrcvd(
 		.DRST		(csr[10])				// reset command to IODELAY
    );
 
-	// imitate trigger transitions on IODELAY reset
-	always @ (posedge CLK) begin
-		iodrst <= csr[10];
-		if (iodrst) begin
-			hclk_cnt <= 15;
-			trigmux <= 1;
-			halfclk <= 0;
-		end else if (|hclk_cnt) begin
-			hclk_cnt <= hclk_cnt - 1;
-			halfclk <= ~halfclk;
-		end else begin
-			trigmux <= 0;
-			halfclk <= 0;
-		end
-	end
+// imitate trigger transitions on IODELAY reset
+//	always @ (posedge CLK) begin
+//		iodrst <= csr[10];
+//		if (iodrst) begin
+//			hclk_cnt <= 15;
+//			trigmux <= 1;
+//			halfclk <= 0;
+//		end else if (|hclk_cnt) begin
+//			hclk_cnt <= hclk_cnt - 1;
+//			halfclk <= ~halfclk;
+//		end else begin
+//			trigmux <= 0;
+//			halfclk <= 0;
+//		end
+//	end
 
 	// generate trigger pulse and encode trigger time
 	always @ (posedge CLK) begin

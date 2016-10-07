@@ -67,6 +67,44 @@
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="fpga_chan_summary.xml"/>
     <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="fpga_chan_usage.xml"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="fpga_chan_xst.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="fpga_chand.bgn" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BIT" xil_pn:name="fpga_chand.bit" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="fpga_chand.bld"/>
+    <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="fpga_chand.cmd_log"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_DRC" xil_pn:name="fpga_chand.drc" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="fpga_chand.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="fpga_chand.ncd" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="fpga_chand.ngc"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="fpga_chand.ngd"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="fpga_chand.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="fpga_chand.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="fpga_chand.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="fpga_chand.pcf" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="fpga_chand.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="fpga_chand.ptwx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="fpga_chand.stx"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="fpga_chand.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="fpga_chand.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="fpga_chand.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="fpga_chand.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_BITGEN_REPORT" xil_pn:name="fpga_chand.ut" xil_pn:subbranch="FPGAConfiguration"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="fpga_chand.xpi"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="fpga_chand.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="fpga_chand_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="fpga_chand_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="fpga_chand_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="fpga_chand_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="fpga_chand_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="fpga_chand_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="fpga_chand_map.xrpt"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="fpga_chand_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="fpga_chand_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="fpga_chand_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="fpga_chand_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="fpga_chand_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="fpga_chand_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="fpga_chand_usage.xml"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="fpga_chand_xst.xrpt"/>
     <file xil_pn:fileType="FILE_LOG" xil_pn:name="fuse.log"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
     <file xil_pn:branch="BehavioralSim" xil_pn:fileType="FILE_CMD" xil_pn:name="isim.cmd"/>
@@ -115,6 +153,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
@@ -148,6 +187,7 @@
       <status xil_pn:value="OutOfDateForProperties"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="InputRemoved"/>
       <status xil_pn:value="OutputChanged"/>
@@ -168,11 +208,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1434044748" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="-4684287150035472372" xil_pn:start_ts="1434044748">
+    <transform xil_pn:end_ts="1475849687" xil_pn:name="TRAN_schematicsToHdl" xil_pn:prop_ck="2374115373033280848" xil_pn:start_ts="1475849687">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1437743328" xil_pn:in_ck="6384600455171624245" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="-2713805598030153810" xil_pn:start_ts="1437743327">
+    <transform xil_pn:end_ts="1475849688" xil_pn:in_ck="6384600455171624245" xil_pn:name="TRAN_regenerateCores" xil_pn:prop_ck="2678136210340666962" xil_pn:start_ts="1475849687">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="../wfd125-mainfpga/ipcore_dir/s6_gtpwizard_v1_11.v"/>
@@ -191,7 +231,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1434044748" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="8158452565654803022" xil_pn:start_ts="1434044748">
+    <transform xil_pn:end_ts="1475849688" xil_pn:name="TRAN_xawsTohdl" xil_pn:prop_ck="1909412295492681682" xil_pn:start_ts="1475849688">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
@@ -199,89 +239,80 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1434044748" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-7924846755966894280" xil_pn:start_ts="1434044748">
+    <transform xil_pn:end_ts="1475849688" xil_pn:name="TRAN_platgen" xil_pn:prop_ck="-3265525338185804004" xil_pn:start_ts="1475849688">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1474393987" xil_pn:in_ck="-6665423628156700594" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="5045978573246904445" xil_pn:start_ts="1474393936">
+    <transform xil_pn:end_ts="1475859539" xil_pn:in_ck="1564013109415326968" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-624668022961114463" xil_pn:start_ts="1475859510">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
-      <outfile xil_pn:name="fpga_chan.lso"/>
-      <outfile xil_pn:name="fpga_chan.ngc"/>
-      <outfile xil_pn:name="fpga_chan.ngr"/>
-      <outfile xil_pn:name="fpga_chan.prj"/>
-      <outfile xil_pn:name="fpga_chan.stx"/>
-      <outfile xil_pn:name="fpga_chan.syr"/>
-      <outfile xil_pn:name="fpga_chan.xst"/>
-      <outfile xil_pn:name="fpga_chan_xst.xrpt"/>
+      <outfile xil_pn:name="fpga_chand.lso"/>
+      <outfile xil_pn:name="fpga_chand.ngc"/>
+      <outfile xil_pn:name="fpga_chand.ngr"/>
+      <outfile xil_pn:name="fpga_chand.prj"/>
+      <outfile xil_pn:name="fpga_chand.stx"/>
+      <outfile xil_pn:name="fpga_chand.syr"/>
+      <outfile xil_pn:name="fpga_chand.xst"/>
+      <outfile xil_pn:name="fpga_chand_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1437743378" xil_pn:in_ck="-489406554845905847" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="-8119206654087777799" xil_pn:start_ts="1437743378">
+    <transform xil_pn:end_ts="1475860614" xil_pn:in_ck="-489406554845905847" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="8767341520746606973" xil_pn:start_ts="1475860614">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1474393998" xil_pn:in_ck="-2483805371768932896" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="6142442345415038767" xil_pn:start_ts="1474393987">
+    <transform xil_pn:end_ts="1475860623" xil_pn:in_ck="7429475066895804751" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1004242417898743309" xil_pn:start_ts="1475860614">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
-      <outfile xil_pn:name="fpga_chan.bld"/>
-      <outfile xil_pn:name="fpga_chan.ngd"/>
-      <outfile xil_pn:name="fpga_chan_ngdbuild.xrpt"/>
+      <outfile xil_pn:name="fpga_chand.bld"/>
+      <outfile xil_pn:name="fpga_chand.ngd"/>
+      <outfile xil_pn:name="fpga_chand_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1474394182" xil_pn:in_ck="-2783683599449084031" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="162888403099749330" xil_pn:start_ts="1474393998">
+    <transform xil_pn:end_ts="1475860744" xil_pn:in_ck="-5181828430632858301" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="162888403099749330" xil_pn:start_ts="1475860623">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
-      <outfile xil_pn:name="fpga_chan.pcf"/>
-      <outfile xil_pn:name="fpga_chan_map.map"/>
-      <outfile xil_pn:name="fpga_chan_map.mrp"/>
-      <outfile xil_pn:name="fpga_chan_map.ncd"/>
-      <outfile xil_pn:name="fpga_chan_map.ngm"/>
-      <outfile xil_pn:name="fpga_chan_map.xrpt"/>
-      <outfile xil_pn:name="fpga_chan_summary.xml"/>
-      <outfile xil_pn:name="fpga_chan_usage.xml"/>
+      <outfile xil_pn:name="fpga_chand.pcf"/>
+      <outfile xil_pn:name="fpga_chand_map.map"/>
+      <outfile xil_pn:name="fpga_chand_map.mrp"/>
+      <outfile xil_pn:name="fpga_chand_map.ncd"/>
+      <outfile xil_pn:name="fpga_chand_map.ngm"/>
+      <outfile xil_pn:name="fpga_chand_map.xrpt"/>
+      <outfile xil_pn:name="fpga_chand_summary.xml"/>
+      <outfile xil_pn:name="fpga_chand_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1474394312" xil_pn:in_ck="8877314215306727226" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="3214117756270688487" xil_pn:start_ts="1474394182">
-      <status xil_pn:value="AbortedRun"/>
+    <transform xil_pn:end_ts="1475860834" xil_pn:in_ck="8657207600597797333" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="3214117756270688487" xil_pn:start_ts="1475860744">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
-      <outfile xil_pn:name="fpga_chan.ncd"/>
-      <outfile xil_pn:name="fpga_chan.pad"/>
-      <outfile xil_pn:name="fpga_chan.par"/>
-      <outfile xil_pn:name="fpga_chan.ptwx"/>
-      <outfile xil_pn:name="fpga_chan.unroutes"/>
-      <outfile xil_pn:name="fpga_chan.xpi"/>
-      <outfile xil_pn:name="fpga_chan_pad.csv"/>
-      <outfile xil_pn:name="fpga_chan_pad.txt"/>
-      <outfile xil_pn:name="smartpreview.twr"/>
+      <outfile xil_pn:name="fpga_chand.ncd"/>
+      <outfile xil_pn:name="fpga_chand.pad"/>
+      <outfile xil_pn:name="fpga_chand.par"/>
+      <outfile xil_pn:name="fpga_chand.ptwx"/>
+      <outfile xil_pn:name="fpga_chand.unroutes"/>
+      <outfile xil_pn:name="fpga_chand.xpi"/>
+      <outfile xil_pn:name="fpga_chand_pad.csv"/>
+      <outfile xil_pn:name="fpga_chand_pad.txt"/>
+      <outfile xil_pn:name="fpga_chand_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1474393767" xil_pn:in_ck="-8519601766598801862" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1474393731">
-      <status xil_pn:value="AbortedRun"/>
+    <transform xil_pn:end_ts="1475860857" xil_pn:in_ck="-3077107871850335432" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1475860834">
+      <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/bitgen.xmsgs"/>
-      <outfile xil_pn:name="fpga_chan.bgn"/>
-      <outfile xil_pn:name="fpga_chan.bit"/>
-      <outfile xil_pn:name="fpga_chan.drc"/>
-      <outfile xil_pn:name="fpga_chan.ut"/>
+      <outfile xil_pn:name="fpga_chand.bgn"/>
+      <outfile xil_pn:name="fpga_chand.bit"/>
+      <outfile xil_pn:name="fpga_chand.drc"/>
+      <outfile xil_pn:name="fpga_chand.ut"/>
       <outfile xil_pn:name="usage_statistics_webtalk.html"/>
       <outfile xil_pn:name="webtalk.log"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
@@ -290,20 +321,16 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="InputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1474393731" xil_pn:in_ck="-93245693088237443" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1474393712">
+    <transform xil_pn:end_ts="1475860834" xil_pn:in_ck="-7228174289014612293" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1475860821">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
-      <outfile xil_pn:name="fpga_chan.twr"/>
-      <outfile xil_pn:name="fpga_chan.twx"/>
+      <outfile xil_pn:name="fpga_chand.twr"/>
+      <outfile xil_pn:name="fpga_chand.twx"/>
     </transform>
   </transforms>
 
