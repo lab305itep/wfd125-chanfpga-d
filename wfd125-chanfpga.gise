@@ -243,7 +243,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1475859539" xil_pn:in_ck="1564013109415326968" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-624668022961114463" xil_pn:start_ts="1475859510">
+    <transform xil_pn:end_ts="1476207436" xil_pn:in_ck="1564013109415326968" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-624668022961114463" xil_pn:start_ts="1476207386">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -265,7 +265,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1475860623" xil_pn:in_ck="7429475066895804751" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1004242417898743309" xil_pn:start_ts="1475860614">
+    <transform xil_pn:end_ts="1476207448" xil_pn:in_ck="-2821614010976186911" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1004242417898743309" xil_pn:start_ts="1476207436">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -275,10 +275,12 @@
       <outfile xil_pn:name="fpga_chand.ngd"/>
       <outfile xil_pn:name="fpga_chand_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1475860744" xil_pn:in_ck="-5181828430632858301" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="162888403099749330" xil_pn:start_ts="1475860623">
+    <transform xil_pn:end_ts="1476207658" xil_pn:in_ck="-5181828430632858301" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="162888403099749330" xil_pn:start_ts="1476207448">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForOutputs"/>
+      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="fpga_chand.pcf"/>
       <outfile xil_pn:name="fpga_chand_map.map"/>
@@ -289,7 +291,7 @@
       <outfile xil_pn:name="fpga_chand_summary.xml"/>
       <outfile xil_pn:name="fpga_chand_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1475860834" xil_pn:in_ck="8657207600597797333" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="3214117756270688487" xil_pn:start_ts="1475860744">
+    <transform xil_pn:end_ts="1476207900" xil_pn:in_ck="8657207600597797333" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="3214117756270688487" xil_pn:start_ts="1476207658">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -304,7 +306,7 @@
       <outfile xil_pn:name="fpga_chand_pad.txt"/>
       <outfile xil_pn:name="fpga_chand_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1475860857" xil_pn:in_ck="-3077107871850335432" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1475860834">
+    <transform xil_pn:end_ts="1476207938" xil_pn:in_ck="-3077107871850335432" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1476207900">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -325,7 +327,7 @@
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="InputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1475860834" xil_pn:in_ck="-7228174289014612293" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1475860821">
+    <transform xil_pn:end_ts="1476207900" xil_pn:in_ck="-7228174289014612293" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1476207879">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>

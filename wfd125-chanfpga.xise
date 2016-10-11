@@ -476,11 +476,11 @@
     <!-- Do not hand-edit this section, as it will be overwritten when the    -->
     <!-- project is analyzed based on files automatically identified as       -->
     <!-- include files.                                                       -->
-    <file xil_pn:name="../wfd125-mainfpga/intercon/verilog_utils.vh" xil_pn:type="FILE_VERILOG"/>
-    <file xil_pn:name="../wfd125-mainfpga/orpsocv2/rtl/verilog/include/i2c_master_slave_defines.v" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="fpga_chan.vh" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="version.vh" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="wb_intercon.vh" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="../wfd125-mainfpga/intercon/verilog_utils.vh" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="../wfd125-mainfpga/orpsocv2/rtl/verilog/include/i2c_master_slave_defines.v" xil_pn:type="FILE_VERILOG"/>
   </autoManagedFiles>
 
 </project>

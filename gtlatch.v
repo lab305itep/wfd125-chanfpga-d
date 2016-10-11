@@ -19,7 +19,6 @@
 //
 //////////////////////////////////////////////////////////////////////////////////
 module gtlatch(
-	input 			adcclk,	// ADC clock
 	input			extclk,	// External frequency
 	input [21:0] 		gtin,	// External frequency counter
 	input 			trig,	// Trigger

@@ -232,53 +232,53 @@ module prc1chand # (
 	always @ (posedge ADCCLK) begin
 		p_blkend <= 0;			// default
 		blklen <= winlen + 2;		// relatch for better timing
-		tofifo <= 0;
+		tofifo = 0;
+		cb_raddr <= cb_raddr + 1;	// increment by default
 //		state machine
 		case (trg_state) 
 		ST_IDLE: begin
-			if (~fifo_full & winlen != 0) begin // write nothing on zero winlen
+			if (~fifo_full && (winlen != 0)) begin // write nothing on zero winlen
 				if (ptrig) begin
-					trg_state <= ST_M1;
+					trg_state <= ST_M0;
 				end else if (strig) begin
 					// we can write to fifo, write CW
-					tofifo <= {1'b1, num, blklen};
+					tofifo = {1'b1, num, blklen};
 					f_waddr <= f_waddr + 1;
-					to_copy <= winlen;
+					to_copy <= winlen + 1;
 					trg_state <= ST_S1;					
 				end
 			end
 		end
 		ST_M0: begin
 			// we can write to fifo, write CW
-			tofifo <= {1'b1, num, blklen};
+			tofifo = {1'b1, num, blklen};
 			f_waddr <= f_waddr + 1;
-			to_copy <= winlen;
+			to_copy <= winlen + 1;
 			trg_state <= ST_M1;
 		end
 		ST_M1: begin
 // 	1	0ttt penn nnnn nnnn
-			tofifo <= {4'b0110, blkpar, 1'b0, gtime[24:15]};
+			tofifo = {4'b0110, blkpar, 1'b0, gtime[24:15]};
 			f_waddr <= f_waddr + 1;
 			cb_raddr <= cb_waddr - mwinbeg;	// prepare for reading from circular buffer
 			trg_state <= ST_M2;
 		end
 		ST_M2: begin
 //	2	0TTT TTTT TTTT TDDD 
-			tofifo <= {1'b0, gtime[14:0]};
+			tofifo = {1'b0, gtime[14:0]};
 			f_waddr <= f_waddr + 1;
-			cb_raddr <= cb_raddr + 1;			// preincrement circular buffer read address
 			trg_state <= ST_MDATA;
 		end
 		ST_MDATA: begin
 			// stream data from circular buffer to fifo
-			tofifo <= {1'b0, cb_data[14:0]};
+			tofifo = {1'b0, cb_data[14:0]};
 			f_waddr <= f_waddr + 1;
-			cb_raddr <= cb_raddr + 1;
 			to_copy <= to_copy - 1;
 			if (to_copy == 1)	begin
 				f_blkend <= f_waddr + 1;			// save next waddr for further restoration
 				trg_state <= ST_IDLE;
 				p_blkend <= 1;
+				blkpar <= ~blkpar;
 			end
 		end
 		ST_S1: begin
@@ -287,7 +287,7 @@ module prc1chand # (
 				trg_state <= ST_M0;
 			end else begin
 // 	1	0ttt penn nnnn nnnn
-				tofifo <= {4'b0011, blkpar, 1'b0, strig_cnt};
+				tofifo = {4'b0011, blkpar, 1'b0, strig_cnt};
 				f_waddr <= f_waddr + 1;
 				cb_raddr <= cb_waddr - swinbeg;	// prepare for reading from circular buffer
 				trg_state <= ST_S2;
@@ -299,9 +299,8 @@ module prc1chand # (
 				trg_state <= ST_M0;
 			end else begin
 //	2	0000 DDDD DDDD DDDD - self : baseline absolute value in ADC units
-				tofifo <= {{(16-ABITS){1'b0}}, ped_c};
+				tofifo = {{(16-ABITS){1'b0}}, ped_c};
 				f_waddr <= f_waddr + 1;
-				cb_raddr <= cb_raddr + 1;			// preincrement circular buffer read address
 				trg_state <= ST_SDATA;
 			end
 		end
@@ -311,14 +310,14 @@ module prc1chand # (
 				trg_state <= ST_M0;
 			end else begin
 				// stream data from circular buffer to fifo
-				tofifo <= {1'b0, cb_data[14:0]};
+				tofifo = {1'b0, cb_data[14:0]};
 				f_waddr <= f_waddr + 1;
-				cb_raddr <= cb_raddr + 1;
 				to_copy <= to_copy - 1;
 				if (to_copy == 1)	begin
 					f_blkend <= f_waddr + 1;			// save next waddr for further restoration
 					trg_state <= ST_IDLE;
 					p_blkend <= 1;
+					blkpar <= ~blkpar;
 				end
 			end
 		end
@@ -326,7 +325,7 @@ module prc1chand # (
 		default: trg_state <= ST_IDLE;
 		endcase
 //		Missed
-		if (ptrig & (fifo_full || trg_state == ST_M0 || trg_state == ST_M1 ||
+		if (ptrig && (fifo_full || trg_state == ST_M0 || trg_state == ST_M1 ||
 			trg_state == ST_M2 || trg_state == ST_MDATA)) begin
 			missed_adcclk <= 1;
 		end else begin

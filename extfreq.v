@@ -60,7 +60,7 @@ module extfreq(
 		if (res) begin
 			cnt <= 0;
 		end else if (~inh) begin
-			cnt <= counter + 1;
+			cnt <= cnt + 1;
 		end
 	end
 	

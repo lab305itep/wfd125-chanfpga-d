@@ -454,7 +454,6 @@ module fpga_chand(
 				.trig		(ddiscr[i])					// discriminator output		
 			);
 			gtlatch UGTL (
-				.adcclk		(ADCCLK[i/2]),
 				.extclk		(ext_freq),
 				.gtin		(gtime),
 				.trig		(ddiscr[i]),
