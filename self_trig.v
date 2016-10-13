@@ -35,7 +35,6 @@ module self_trig #(
 	reg			inh = 1;	// inhibit, relatched to ADCCLK
 	reg 			discr = 0;	// signal above selftrigger threshold
 	reg [STDBITS-1:0]	strig_del;	// counter for selftrigger delay
-	reg			strig = 0;	// self trigger before delay
 	reg [15:0]		presc_cnt = 0;	// selftrigger prescale counter
 
 	//		self trigger & prescale 
@@ -59,8 +58,6 @@ module self_trig #(
 						presc_cnt <= presc_cnt - 1;
 					end else begin
 						presc_cnt <= prescale;
-						// produce self trigger and memorize current position in circular buffer
-						strig <= 1;
 						counter <= counter + 1;	// count self triggers after prescale independently of transmission
 						if (strig_del == 0) begin
 							strig_del <= STDELAY;
@@ -70,11 +67,10 @@ module self_trig #(
 			end else if (data <= $signed({1'b0,threshold[ABITS-1:1]})) begin
 				// HALF threshold crossed back (noise reduction)
 				discr <= 0;
-				// finish with trigger on command from state machine
-				strig <= 0;
 			end 
 		end else begin
-			strig <= 0;
+			discr <= 0;
+			strig_del <= 0;
 		end
 	end
 

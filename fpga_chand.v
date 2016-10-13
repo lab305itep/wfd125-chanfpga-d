@@ -442,13 +442,13 @@ module fpga_chand(
 	generate
 		for (i=0; i<8; i = i + 1) begin: UDTC1
 			always @ (posedge CLK125) begin
-				dt_inhibit[i] <= CSR[15] | par_array[PAR_MTMASK*16+(i/2)] | ICX[6];
+				dt_inhibit[i] <= CSR[15] || par_array[PAR_MTMASK*16+i] || ICX[6];
 			end
 			doubletrig UDTC (
 				.ADCCLK		(ADCCLK[i/2]),					// ADC clock, common for each 2 pairs of channels
 				.dpdata		(dpdata[32*i+31:32*i]),				// data from 2 prc1chan's, ADC clocked, ped subtracted
-				.ithr		(par_array[PAR_MTTHR*16+11:PAR_MTTHR*16]),	// individual channel threshold
-				.sthr		(par_array[PAR_SUTHR*16+11:PAR_SUTHR*16]),	// two channel sum threshold
+				.ithr		(par_array[PAR_MTTHR*16+15:PAR_MTTHR*16]),	// individual channel threshold
+				.sthr		(par_array[PAR_SUTHR*16+15:PAR_SUTHR*16]),	// two channel sum threshold
 				.inhibit	(dt_inhibit[i]),				// total inhibit
 				.exttrig	(~gtp_comma_o[0]),				// external trigger
 				.trig		(ddiscr[i])					// discriminator output		

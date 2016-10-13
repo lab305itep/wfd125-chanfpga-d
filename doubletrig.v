@@ -19,13 +19,11 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module doubletrig # (
-	parameter ABITS = 12
-)(
+module doubletrig (
 	input			ADCCLK,		// ADC clock, common for both channels
 	input [31:0]		dpdata,		// data from 2 prc1chan's, ADC clocked, ped subtracted
-	input [ABITS-1:0] 	ithr,		// individual channel threshold
-	input [ABITS-1:0] 	sthr,		// two channel sum threshold
+	input [15:0] 		ithr,		// individual channel threshold
+	input [15:0] 		sthr,		// two channel sum threshold
 	input 			inhibit,	// cumulative inhibit
 	input			exttrig,	// external trigger
 	output reg		trig		// resulting trigger
@@ -56,14 +54,14 @@ module doubletrig # (
 					ddiscr <= 1;
 					trig <= 1;	// single pulse
 				end
-			end else if (s2 <= $signed({1'b0,sthr[ABITS-1:1]})) begin
+			end else if (s2 <= $signed({1'b0,sthr[15:1]})) begin
 				// HALF threshold crossed back (noise reduction)
 				ddiscr <= 0;
 			end 
 		end else begin
 			ddiscr <= 0;
 		end
-		trig <= ext_d;
+		if (ext_d) trig <= 1;
 	end
 	
 	always @(posedge ADCCLK or posedge exttrig) begin
