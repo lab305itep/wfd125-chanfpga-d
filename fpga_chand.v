@@ -113,7 +113,7 @@ module fpga_chand(
 	input CCLK,
 	input DIN,
 	// Test points
-	output [5:1] TP
+	output reg [5:1] TP
 );
 
 `include "fpga_chan.vh"
@@ -159,6 +159,10 @@ module fpga_chand(
 //		WB-bus
 	wire			wb_clk;
 	reg			wb_rst;
+	
+	wire [15:0]		DBG;
+	reg [4:0]		DBGR;
+	
 `include "wb_intercon.vh"
 	always @ (posedge wb_clk) wb_rst <= ICX[5];
 
@@ -430,7 +434,8 @@ module fpga_chand(
 				.missed		(fifo_missed[i]),
 				// to sumtrig
 				.testmode	(CSR[11]),
-				.testpulse	(ICX[7])
+				.testpulse	(ICX[7]),
+				.debug		(DBG[i])
 			);		
 			assign adc_ped[16*i+15:16*i+12] = 0;
 		end
@@ -499,5 +504,15 @@ module fpga_chand(
 	);
 
 //		Test points
-	assign TP = 0;
+	generate
+		for (i=0; i<4; i = i + 1) begin: UTP
+			always @ (posedge CLK125) begin
+				DBGR[i] <= | DBG[4*i+3:4*i];
+			end
+		end
+	endgenerate
+	
+	always @ (posedge CLK125) begin
+		TP <= {1'b0, DBGR};
+	end
 endmodule

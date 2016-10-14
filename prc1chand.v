@@ -75,7 +75,8 @@ module prc1chand # (
 	output reg		missed,		// 1 clk pulse when fifo cannot accept data because of full
 	// test pulse interface
 	input			testmode,	// Select test mode
-	input			testpulse	// do test pulse on the leading edge
+	input			testpulse,	// do test pulse on the leading edge
+	output			debug
 );
 //
 //		Signals decalrations
@@ -130,6 +131,8 @@ module prc1chand # (
 
 	// test mode support
 	reg [1:0]		testp = 0;
+	
+	assign debug = 0;
 
 //
 //		The logic
@@ -140,7 +143,7 @@ module prc1chand # (
 		.ABITS(ABITS),
 		.PBITS(12)
 	) UPED (
-		.clk(CLK),
+		.clk(clk),
 		.adcclk(ADCCLK),
 		.data(ADCDAT),
 		.inhibit(pedinh),
@@ -155,7 +158,7 @@ module prc1chand # (
 		if (testmode) begin
 			pdata <= (testp == 2'b01) ? 256 : 0;
 		end else if (raw) begin
-			pdata <= {{(16-ABITS){1'b0}} ,ADCDAT};
+			pdata <= {{(16-ABITS){1'b0}}, ADCDAT};
 		end else if (invert) begin
 			pdata <= ped_c - ADCDAT;
 		end else begin
@@ -173,7 +176,7 @@ module prc1chand # (
 	end
 
 //		self trigger & prescale 
-	always @ (posedge CLK) begin
+	always @ (posedge clk) begin
 		inh <= inhibit | stmask | raw;	// effective inhibit
 	end
 	self_trig #(
@@ -189,7 +192,7 @@ module prc1chand # (
 		.trig(strig),
 		.counter(strig_cnt)
 	);
-
+	
 //	FIFO
 	assign have = give & (f_raddr != f_blkend_clk);
 	assign graddr = (have) ? (f_raddr + 1) : f_raddr;

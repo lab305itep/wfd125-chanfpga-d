@@ -34,7 +34,7 @@ module self_trig #(
 
 	reg			inh = 1;	// inhibit, relatched to ADCCLK
 	reg 			discr = 0;	// signal above selftrigger threshold
-	reg [STDBITS-1:0]	strig_del;	// counter for selftrigger delay
+	reg [STDBITS-1:0]	strig_del = 0;	// counter for selftrigger delay
 	reg [15:0]		presc_cnt = 0;	// selftrigger prescale counter
 
 	//		self trigger & prescale 
