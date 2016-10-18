@@ -18,11 +18,14 @@
 // Additional Comments: 
 //
 //////////////////////////////////////////////////////////////////////////////////
-module gtlatch(
+module gtlatch #(
+	parameter PHASE = "ENCODED"	// RAW / ENCODED
+)(
 	input			extclk,	// External frequency
 	input [21:0] 		gtin,	// External frequency counter
 	input 			trig,	// Trigger
-	input [2:0] 		phase,	// external frequency phase
+	input [2:0] 		phase,	// external frequency phase encoded
+	input [5:0]		raw,	// external frequency phase raw
 	output [24:0]	 	gtout	// latched result
 );
 
@@ -42,7 +45,12 @@ module gtlatch(
 			gt <= gtin;
 		end
 	end
-	
-	assign gtout = {gt, phase};
+	generate 
+		if (PHASE == "RAW") begin
+			assign gtout = {gt[18:0], raw};
+		end else begin
+			assign gtout = {gt, phase};
+		end
+	endgenerate
 
 endmodule

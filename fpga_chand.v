@@ -149,7 +149,8 @@ module fpga_chand(
 
 	wire 			sertrig;	// serial trigger as accepted from ICX[1:0] - 125/8 MHz here
 	wire			ext_freq;	// external frequency x8 = 125 MHz
-	wire [11:0]		trig_time;	// external frequency phase
+	wire [11:0]		trig_time;	// external frequency phase (encoded)
+	wire [23:0]		trig_raw;	// external frequency phase (raw)
 
 	wire [511:0]  		par_array;
 	wire [255:0]  		adc_ped;
@@ -381,7 +382,8 @@ module fpga_chand(
 				.DOUT		(ADCDAT[48*i+47:48*i]),	// output data (CLK clocked)
 				// this ADC trigger
 				.sertrig	(ext_freq),		// as from ICX - external frequency
-				.trtime		(trig_time[3*i+2:3*i]),	// external frequency phase
+				.trtime		(trig_time[3*i+2:3*i]),	// external frequency phase (encoded)
+				.trraw		(trig_raw[6*i+5:6*i]),	// not encoded phase 
 				//	WB interface
 				.wb_clk		(wb_clk),
 				.wb_cyc		(wb_m2s_adc_rcv_cyc),
@@ -458,11 +460,14 @@ module fpga_chand(
 				.exttrig	(~gtp_comma_o[0]),				// external trigger
 				.trig		(ddiscr[i])					// discriminator output		
 			);
-			gtlatch UGTL (
+			gtlatch # (
+				.PHASE		("ENCODED")
+			) UGTL (
 				.extclk		(ext_freq),
 				.gtin		(gtime),
 				.trig		(ddiscr[i]),
 				.phase		(trig_time[3*(i/2)+2:3*(i/2)]),
+				.raw		(trig_raw[6*(i/2)+5:6*(i/2)]),
 				.gtout		(gtime_l[25*i+24:25*i])
 			);
 		end

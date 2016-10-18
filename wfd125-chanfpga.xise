@@ -130,10 +130,6 @@
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="121"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="28"/>
     </file>
-    <file xil_pn:name="../wfd125-mainfpga/cmux21.v" xil_pn:type="FILE_VERILOG">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="132"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
-    </file>
     <file xil_pn:name="../wfd125-mainfpga/ipcore_dir/s6_gtpwizard_v1_11.xise" xil_pn:type="FILE_COREGENISE">
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>

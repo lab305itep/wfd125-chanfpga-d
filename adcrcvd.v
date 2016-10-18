@@ -45,6 +45,7 @@ module adcrcvd(
 		// ADC trigger
 		input			sertrig,	// 125 MHz external frequency
 		output reg [2:0]	trtime,		// encoded external frequncy phase
+		output reg [5:0]	trraw,		// raw phase bits
 		//	WB interface
 		input 			wb_clk,
 		input 			wb_cyc,
@@ -184,15 +185,7 @@ module adcrcvd(
       end
    endgenerate
 	
-	// Trigger
-	// mux with wb_clk/2 on IODELAY reset
-//	cmux21 trig_mux (
-//		.I0	(sertrig),
-//		.I1	(halfclk),
-//		.S	(trigmux),
-//		.O	(trigout)
-//	);
-	
+
 	// translate to ibuf
    OBUFDS #(
       .IOSTANDARD("BLVDS_25") 		// Specify the output I/O standard
@@ -218,44 +211,41 @@ module adcrcvd(
 		.DRST		(csr[10])				// reset command to IODELAY
    );
 
-// imitate trigger transitions on IODELAY reset
-//	always @ (posedge CLK) begin
-//		iodrst <= csr[10];
-//		if (iodrst) begin
-//			hclk_cnt <= 15;
-//			trigmux <= 1;
-//			halfclk <= 0;
-//		end else if (|hclk_cnt) begin
-//			hclk_cnt <= hclk_cnt - 1;
-//			halfclk <= ~halfclk;
-//		end else begin
-//			trigmux <= 0;
-//			halfclk <= 0;
-//		end
-//	end
-
 	// generate trigger pulse and encode trigger time
 	always @ (posedge CLK) begin
+		trraw <= TR_r;
 		case (TR_r)
 //	coding table for frequency input
+			6'b111101 : trtime <= 5;	// latest
 			6'b111001 : trtime <= 5;	// latest
 			6'b110001 : trtime <= 5;	// latest
 			6'b100001 : trtime <= 5;	// latest
+			6'b000001 : trtime <= 5;	// latest
+			6'b111011 : trtime <= 4;
 			6'b110011 : trtime <= 4;
 			6'b100011 : trtime <= 4;
 			6'b000011 : trtime <= 4;
+			6'b000010 : trtime <= 4;
+			6'b110111 : trtime <= 3;
 			6'b100111 : trtime <= 3;
 			6'b000111 : trtime <= 3;
 			6'b000110 : trtime <= 3;
+			6'b000100 : trtime <= 3;
+			6'b101111 : trtime <= 2;
 			6'b001111 : trtime <= 2;
 			6'b001110 : trtime <= 2;
 			6'b001100 : trtime <= 2;
+			6'b001000 : trtime <= 2;
+			6'b011111 : trtime <= 1;
 			6'b011110 : trtime <= 1;
 			6'b011100 : trtime <= 1;
 			6'b011000 : trtime <= 1;
+			6'b010000 : trtime <= 1;
+			6'b111110 : trtime <= 0;	// earliest
 			6'b111100 : trtime <= 0;	// earliest
 			6'b111000 : trtime <= 0;	// earliest
 			6'b110000 : trtime <= 0;	// earliest
+			6'b100000 : trtime <= 0;	// earliest
 			default   : trtime <= 7;	// error
 		endcase
 	end
