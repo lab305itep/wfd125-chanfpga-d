@@ -36,7 +36,6 @@
 //  6:4 - counter max = 2**(16 + 2*CSR[6:4]) for ADC receiver checks
 //  7   - check start - edge sensitive  (ready on read)
 //  8   - reset external frequency DCM  (auto reset)
-//  9   - reset exteral frequency counter
 //  11  - test mode - do short pulses on testpulses (ICX[7])
 //  12  - ped mode: 
 //		0 - pedestals are calculated independently of signal level and calculated value is direcly used for subtraction
@@ -477,7 +476,6 @@ module fpga_chand(
 		.freqin		(sertrig),
 		.freqout	(ext_freq),
 		.counter	(gtime),
-		.reset		(CSR[9]),
 		.inhibit	(ICX[6]),
 		.dcmreset	(CSR[8])
 	);

@@ -22,13 +22,11 @@ module extfreq(
 	input	 		freqin,		// external frequency input, 125/8 MHz expected
 	output reg		freqout = 0,	// output 125 MHz
 	output [21:0] 		counter,	// 125 MHz counter
-	input 			reset,		// reset counter
 	input 			inhibit,	// inhibit counter
 	input 			dcmreset	// reset DCM
 );
 
-	reg			inh;		// inhibit latched by local frequency
-	reg			res;		// reset latched by local frequency
+	reg			inh = 1;	// inhibit latched by local frequency
 	wire			dcmfb;		// DCM feedback
 	wire			freq16;		// 16x of input frequency
 	reg [22:0]		cnt = 0;	// internal counter
@@ -56,10 +54,9 @@ module extfreq(
 	always @ (posedge freq16) begin
 		freqout <= ~freqout;
 		inh <= inhibit;
-		res <= reset;
-		if (res) begin
+		if (inh) begin
 			cnt <= 0;
-		end else if (~inh) begin
+		end else begin
 			cnt <= cnt + 1;
 		end
 	end

@@ -243,7 +243,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1476786517" xil_pn:in_ck="-4047379731564662415" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-624668022961114463" xil_pn:start_ts="1476786484">
+    <transform xil_pn:end_ts="1478086349" xil_pn:in_ck="-4047379731564662415" xil_pn:name="TRANEXT_xstsynthesize_spartan6" xil_pn:prop_ck="-624668022961114463" xil_pn:start_ts="1478086315">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -265,7 +265,7 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1476786527" xil_pn:in_ck="-2821614010976186911" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1004242417898743309" xil_pn:start_ts="1476786517">
+    <transform xil_pn:end_ts="1478086359" xil_pn:in_ck="-2821614010976186911" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="-1004242417898743309" xil_pn:start_ts="1478086349">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -275,12 +275,10 @@
       <outfile xil_pn:name="fpga_chand.ngd"/>
       <outfile xil_pn:name="fpga_chand_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1476786674" xil_pn:in_ck="-5181828430632858301" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="162888403099749330" xil_pn:start_ts="1476786527">
+    <transform xil_pn:end_ts="1478086509" xil_pn:in_ck="-5181828430632858301" xil_pn:name="TRANEXT_map_spartan6" xil_pn:prop_ck="162888403099749330" xil_pn:start_ts="1478086359">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForOutputs"/>
-      <status xil_pn:value="OutputChanged"/>
       <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
       <outfile xil_pn:name="fpga_chand.pcf"/>
       <outfile xil_pn:name="fpga_chand_map.map"/>
@@ -291,7 +289,7 @@
       <outfile xil_pn:name="fpga_chand_summary.xml"/>
       <outfile xil_pn:name="fpga_chand_usage.xml"/>
     </transform>
-    <transform xil_pn:end_ts="1476786866" xil_pn:in_ck="8657207600597797333" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="3214117756270688487" xil_pn:start_ts="1476786674">
+    <transform xil_pn:end_ts="1478086707" xil_pn:in_ck="8657207600597797333" xil_pn:name="TRANEXT_par_spartan6" xil_pn:prop_ck="3214117756270688487" xil_pn:start_ts="1478086509">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -306,7 +304,7 @@
       <outfile xil_pn:name="fpga_chand_pad.txt"/>
       <outfile xil_pn:name="fpga_chand_par.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1476786892" xil_pn:in_ck="-3077107871850335432" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1476786866">
+    <transform xil_pn:end_ts="1478086734" xil_pn:in_ck="-3077107871850335432" xil_pn:name="TRANEXT_bitFile_spartan6" xil_pn:prop_ck="5341574683187206424" xil_pn:start_ts="1478086707">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
@@ -327,7 +325,7 @@
       <status xil_pn:value="InputChanged"/>
       <status xil_pn:value="InputRemoved"/>
     </transform>
-    <transform xil_pn:end_ts="1476786866" xil_pn:in_ck="-7228174289014612293" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1476786851">
+    <transform xil_pn:end_ts="1478086707" xil_pn:in_ck="-7228174289014612293" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416184" xil_pn:start_ts="1478086692">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
