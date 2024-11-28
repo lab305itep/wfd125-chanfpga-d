@@ -60,27 +60,27 @@
     </file>
     <file xil_pn:name="../wfd125-mainfpga/ipcore_dir/s6_gtpwizard_v1_11.xco" xil_pn:type="FILE_COREGEN">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
     </file>
     <file xil_pn:name="../wfd125-mainfpga/inoutreg.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
     </file>
     <file xil_pn:name="../wfd125-mainfpga/xspi_master.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="12"/>
     </file>
-    <file xil_pn:name="../wfd125-mainfpga/orpsocv2/rtl/verilog/i2c_master_slave/i2c_master_slave.v" xil_pn:type="FILE_VERILOG">
+    <file xil_pn:name="../wfd125-mainfpga/i2c_master_slave/i2c_master_slave.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="13"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="14"/>
     </file>
-    <file xil_pn:name="../wfd125-mainfpga/orpsocv2/rtl/verilog/i2c_master_slave/i2c_master_bit_ctrl.v" xil_pn:type="FILE_VERILOG">
+    <file xil_pn:name="../wfd125-mainfpga/i2c_master_slave/i2c_master_bit_ctrl.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="1"/>
     </file>
-    <file xil_pn:name="../wfd125-mainfpga/orpsocv2/rtl/verilog/i2c_master_slave/i2c_master_byte_ctrl.v" xil_pn:type="FILE_VERILOG">
+    <file xil_pn:name="../wfd125-mainfpga/i2c_master_slave/i2c_master_byte_ctrl.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="6"/>
     </file>
     <file xil_pn:name="adccheck.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
@@ -92,7 +92,7 @@
     </file>
     <file xil_pn:name="../wfd125-mainfpga/intercon/wb_mux.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
-      <association xil_pn:name="Implementation" xil_pn:seqID="6"/>
+      <association xil_pn:name="Implementation" xil_pn:seqID="5"/>
     </file>
     <file xil_pn:name="capreg.v" xil_pn:type="FILE_VERILOG">
       <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
@@ -476,7 +476,7 @@
     <file xil_pn:name="version.vh" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="wb_intercon.vh" xil_pn:type="FILE_VERILOG"/>
     <file xil_pn:name="../wfd125-mainfpga/intercon/verilog_utils.vh" xil_pn:type="FILE_VERILOG"/>
-    <file xil_pn:name="../wfd125-mainfpga/orpsocv2/rtl/verilog/include/i2c_master_slave_defines.v" xil_pn:type="FILE_VERILOG"/>
+    <file xil_pn:name="../wfd125-mainfpga/include/i2c_master_slave_defines.v" xil_pn:type="FILE_VERILOG"/>
   </autoManagedFiles>
 
 </project>
